@@ -16,13 +16,14 @@ const Header = () => {
         }}
       >
         <div>
-          <img src={logo} alt="Logo" />
+          <Link to="/">
+            <img src={logo} alt="Logo" />
+          </Link>
         </div>
         <div style={{ gap: "16px", display: "flex" }}>
-          <Link to="/login">
+          <Link to="/sign-in">
             <Button
               style={{
-                // font-family: Manrope;
                 color: "white",
                 backgroundColor: "#0052CC",
                 borderRadius: "8px",
@@ -39,10 +40,9 @@ const Header = () => {
               Login
             </Button>
           </Link>
-          <Link to="/register">
+          <Link to="/sign-up">
             <Button
               style={{
-                // font-family: Manrope;
                 color: "#0052CC",
                 backgroundColor: "white",
                 borderRadius: "8px",
