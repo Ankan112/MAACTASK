@@ -1,6 +1,6 @@
 const Login = () => {
   return (
-    <div>
+    <div className="main-container">
       <h1>login page</h1>
     </div>
   );
