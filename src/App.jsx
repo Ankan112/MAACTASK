@@ -1,9 +1,13 @@
-import "./App.css";
+import { Outlet } from "react-router-dom";
+import Footer from "./components/shared/Footer";
+import Header from "./components/shared/Header";
 
 function App() {
   return (
     <>
-      <h1>layout</h1>
+      <Header />
+      <Outlet />
+      <Footer />
     </>
   );
 }
