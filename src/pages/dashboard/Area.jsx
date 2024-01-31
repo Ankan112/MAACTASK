@@ -1,4 +1,5 @@
 import { Breadcrumb, Button, theme, Layout } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 const { Content } = Layout;
 const Area = () => {
@@ -45,10 +46,19 @@ const Area = () => {
         <Button
           style={{
             marginRight: "20px",
+            background: "#0B2E4E",
+            height: "40px",
+            fontSize: "14px",
+            fontWeight: 400,
+            width: "129px",
+            borderRadius: "10px",
+            padding: "8px 16px",
           }}
           type="primary"
         >
-          Create New
+          <Link to="new-area">
+            <PlusOutlined /> Create New
+          </Link>
         </Button>
       </div>
       <Content

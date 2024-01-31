@@ -6,6 +6,8 @@ import Home from "../pages/Home";
 import DashboardLayout from "../components/shared/DashboardLayout";
 import Region from "../pages/dashboard/Region";
 import Area from "../pages/dashboard/Area";
+import RegionForm from "../pages/dashboard/RegionForm";
+import AreaForm from "../pages/dashboard/AreaForm";
 
 const router = createBrowserRouter([
   {
@@ -35,8 +37,17 @@ const router = createBrowserRouter([
         element: <Region />,
       },
       {
+        path: "region/new-region",
+        element: <RegionForm />,
+      },
+
+      {
         path: "area",
         element: <Area />,
+      },
+      {
+        path: "area/new-area",
+        element: <AreaForm />,
       },
     ],
   },

@@ -1,5 +1,6 @@
 import { Breadcrumb, Button, theme, Layout } from "antd";
 import { Link } from "react-router-dom";
+import { PlusOutlined } from "@ant-design/icons";
 const { Content } = Layout;
 const Region = () => {
   const {
@@ -45,10 +46,20 @@ const Region = () => {
         <Button
           style={{
             marginRight: "20px",
+            background: "#0B2E4E",
+            height: "40px",
+            fontSize: "14px",
+            fontWeight: 400,
+            width: "129px",
+            borderRadius: "10px",
+            padding: "8px 16px",
           }}
           type="primary"
         >
-          Create New
+          <Link to="new-region">
+            <PlusOutlined style={{ marginRight: "4px" }} />
+            Create New
+          </Link>
         </Button>
       </div>
       <Content
