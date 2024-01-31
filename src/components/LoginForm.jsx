@@ -1,12 +1,31 @@
 import { Form, Input, Button, message } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useLoginMutation } from "../redux/api/user/userApi";
+import { useEffect } from "react";
 
 const LoginForm = () => {
+  const [login, { data, isLoading, isError, isSuccess }] = useLoginMutation();
+  const navigate = useNavigate();
+  const [form] = Form.useForm();
   // Function to handle form submission
   const handleSignUp = (values) => {
     // Log form values to the console
-    console.log("Form Values:", values);
+    // console.log("Form Values:", values);
+    login(values);
   };
+
+  useEffect(() => {
+    if (isSuccess && data?.token) {
+      message.success("Login Successful!"),
+        localStorage.setItem("accessToken", data?.token);
+      form.resetFields();
+      navigate("/dashboard/region");
+    }
+  }, [isSuccess, data?.token, navigate, form]);
+  if (isError) {
+    <p>Something went wrong!</p>;
+  }
+  // console.log(data);
   const onFinishFailed = () => {
     message.error("Fill the form!");
   };
@@ -58,6 +77,7 @@ const LoginForm = () => {
         Please login to your account
       </p>
       <Form
+        form={form}
         style={{
           maxWidth: "608px",
           margin: "0 auto",
@@ -112,7 +132,7 @@ const LoginForm = () => {
             }}
             htmlType="submit"
           >
-            Sign in
+            {isLoading ? "Loading..." : "Sign In"}
           </Button>
         </Form.Item>
       </Form>
