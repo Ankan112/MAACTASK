@@ -3,6 +3,12 @@ import App from "../App";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Home from "../pages/Home";
+import DashboardLayout from "../components/shared/DashboardLayout";
+import Region from "../pages/dashboard/Region";
+import Area from "../pages/dashboard/Area";
+import RegionForm from "../pages/dashboard/RegionForm";
+import AreaForm from "../pages/dashboard/AreaForm";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -14,12 +20,39 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/login",
+        path: "/sign-in",
         element: <Login />,
       },
       {
-        path: "/register",
+        path: "/sign-up",
         element: <Register />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "region",
+        element: <Region />,
+      },
+      {
+        path: "region/new-region",
+        element: <RegionForm />,
+      },
+
+      {
+        path: "area",
+        element: <Area />,
+      },
+      {
+        path: "area/new-area",
+        element: <AreaForm />,
       },
     ],
   },

@@ -1,6 +1,23 @@
+/* Google font manrope */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
+
 /* Default style */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+}
+
+/* main container style */
+.main-container {
+  width: 90%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.auth-bg {
+  background-image: url(./assets//registerbg.png);
+  background-size: "cover";
+  background-position: "center";
 }
