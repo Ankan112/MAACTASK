@@ -4,6 +4,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Home from "../pages/Home";
 import DashboardLayout from "../components/shared/DashboardLayout";
+import Region from "../pages/dashboard/Region";
+import Area from "../pages/dashboard/Area";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,16 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout />,
+    children: [
+      {
+        path: "region",
+        element: <Region />,
+      },
+      {
+        path: "area",
+        element: <Area />,
+      },
+    ],
   },
 ]);
 

@@ -2,7 +2,7 @@ import { Layout, Menu, Button, theme, Breadcrumb } from "antd";
 import { Footer } from "antd/es/layout/layout";
 import logo from "../../assets/FieldXDashboard.svg";
 import location from "../../assets/location.svg";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import user from "../../assets/user.png";
 import arrow from "../../assets/chevron-down.svg";
 const { Header, Sider, Content } = Layout;
@@ -86,7 +86,7 @@ const DashboardLayout = () => {
             },
             {
               key: "2",
-              label: <Link to="/dashboard/region">Area</Link>,
+              label: <Link to="/dashboard/area">Area</Link>,
             },
           ]}
         />
@@ -132,6 +132,8 @@ const DashboardLayout = () => {
             </div>
           </div>
         </Header>
+        <Outlet />
+
         <div
           style={{
             display: "flex",
