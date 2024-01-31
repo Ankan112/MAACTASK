@@ -92,12 +92,10 @@ const RegisterForm = () => {
           />
         </Form.Item>
 
-        {/* Phone Field */}
+        {/* ID Field */}
         <Form.Item
-          name="phone"
-          rules={[
-            { required: true, message: "Please input your phone number!" },
-          ]}
+          name="employeeId"
+          rules={[{ required: true, message: "Please input your ID!" }]}
         >
           <Input
             placeholder="Your Id"
@@ -106,10 +104,12 @@ const RegisterForm = () => {
           />
         </Form.Item>
 
-        {/* ID Field */}
+        {/* Phone Field */}
         <Form.Item
-          name="id"
-          rules={[{ required: true, message: "Please input your ID!" }]}
+          name="phoneNumber"
+          rules={[
+            { required: true, message: "Please input your phone number!" },
+          ]}
         >
           <Input
             placeholder="Your Phone Number"
@@ -133,7 +133,7 @@ const RegisterForm = () => {
 
         {/* Confirm Password Field */}
         <Form.Item
-          name="confirmPassword"
+          name="passwordConfirm"
           dependencies={["password"]}
           rules={[
             {
@@ -181,8 +181,7 @@ const RegisterForm = () => {
             variant="borderless"
             placeholder="Select Your Role"
           >
-            <Option value="hub">HUB</Option>
-            {/* <Option value="admin">Admin</Option> */}
+            <Option value="HUB">HUB</Option>
           </Select>
         </Form.Item>
         <Checkbox

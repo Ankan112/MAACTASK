@@ -65,16 +65,16 @@ const LoginForm = () => {
         onFinish={handleSignUp}
         onFinishFailed={onFinishFailed}
       >
-        {/* Email Field */}
+        {/* employeeId Field */}
         <Form.Item
-          name="email"
+          name="employeeId"
           rules={[{ required: true, message: "Please input your email!" }]}
         >
           <Input
-            placeholder="Enter Your Email"
+            placeholder="Enter Your Id"
             variant="borderless"
             style={inputStyles}
-            type="email"
+            type="text"
           />
         </Form.Item>
 
