@@ -8,6 +8,7 @@ import Region from "../pages/dashboard/Region";
 import Area from "../pages/dashboard/Area";
 import RegionForm from "../pages/dashboard/RegionForm";
 import AreaForm from "../pages/dashboard/AreaForm";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "region",
