@@ -1,13 +1,12 @@
-import { useState } from "react";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Layout, Menu, Button, theme } from "antd";
+import { Layout, Menu, Button, theme, Breadcrumb } from "antd";
 import { Footer } from "antd/es/layout/layout";
 import logo from "../../assets/FieldXDashboard.svg";
 import location from "../../assets/location.svg";
 import { Link } from "react-router-dom";
+import user from "../../assets/user.png";
+import arrow from "../../assets/chevron-down.svg";
 const { Header, Sider, Content } = Layout;
 const DashboardLayout = () => {
-  const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -16,7 +15,6 @@ const DashboardLayout = () => {
       <Sider
         trigger={null}
         collapsible
-        collapsed={collapsed}
         width={252}
         style={{ background: "white" }}
       >
@@ -62,18 +60,29 @@ const DashboardLayout = () => {
           </div>
         </div>
         <Menu
-          //   theme="dark"
-          //   mode="inline"
           defaultSelectedKeys={["1"]}
           style={{
             marginLeft: "42px",
+            marginRight: "42px",
             fontWeight: 400,
             fontSize: "13px",
+            background: "none",
           }}
           items={[
             {
               key: "1",
-              label: <Link to="/dashboard/region">Region</Link>,
+              label: (
+                <Link
+                  to="/dashboard/region"
+                  style={{
+                    background: "none",
+                    marginBottom: "4px",
+                    padding: "0px",
+                  }}
+                >
+                  Region
+                </Link>
+              ),
             },
             {
               key: "2",
@@ -85,38 +94,149 @@ const DashboardLayout = () => {
       <Layout>
         <Header
           style={{
-            padding: 0,
+            paddingRight: "20px",
             background: colorBgContainer,
           }}
         >
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
+          <div
             style={{
-              fontSize: "16px",
-              width: 64,
-              height: 64,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "end",
             }}
-          />
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <img src={user} alt="" />
+            </div>
+            <p
+              style={{
+                padding: "0 8px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              Henry
+            </p>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <img src={arrow} alt="" />
+            </div>
+          </div>
         </Header>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <h2
+              style={{
+                margin: "32px 0 8px 24px",
+                fontSize: "20px",
+                fontWeight: 700,
+                color: "#0C1D37",
+              }}
+            >
+              Region List
+            </h2>
+            <Breadcrumb
+              style={{
+                marginLeft: "24px",
+                marginBottom: "8px",
+              }}
+              separator=">"
+              items={[
+                {
+                  title: "Geo",
+                },
+                {
+                  title: "Geo List",
+                  href: "",
+                },
+              ]}
+            />
+          </div>
+          <Button
+            style={{
+              marginRight: "20px",
+            }}
+            type="primary"
+          >
+            Create New
+          </Button>
+        </div>
         <Content
           style={{
             margin: "24px 16px",
             padding: 24,
-            minHeight: 280,
+            minHeight: 706,
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          Content
+          <div>
+            <p
+              style={{
+                fontSize: "20px",
+                fontWeight: 400,
+                color: "#9FA3A6",
+                textAlign: "center",
+              }}
+            >
+              Currently you have no Data. <br />
+              For next step first{" "}
+              <Link to={"/"} style={{ color: "#556EE6" }}>
+                Create Region
+              </Link>
+            </p>
+          </div>
         </Content>
         <Footer
           style={{
             textAlign: "center",
+            background: "#F2F2F5",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "0 23px",
+            height: "60px",
           }}
         >
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
+          <div>
+            <h2
+              style={{
+                fontSize: "13px",
+                fontWeight: 400,
+                color: "#74788D",
+              }}
+            >
+              2022 © MAAC
+            </h2>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              gap: "16px",
+            }}
+          >
+            <p>Contact Us</p>
+            <p>Privacy Policy</p>
+            <p>Terms & Condition</p>
+          </div>
         </Footer>
       </Layout>
     </Layout>
