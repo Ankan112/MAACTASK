@@ -1,14 +1,33 @@
 import { Form, Input, Button, Select, Checkbox, message } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSignUpMutation } from "../redux/api/user/userApi";
+import { useEffect } from "react";
 
 const { Option } = Select;
 
 const RegisterForm = () => {
+  const [signUp, { data, isError, isLoading, isSuccess }] = useSignUpMutation();
+  const navigate = useNavigate();
+  const [form] = Form.useForm();
   // Function to handle form submission
   const handleSignUp = (values) => {
     // Log form values to the console
     console.log("Form Values:", values);
+    signUp(values);
   };
+  console.log(data, isError);
+  useEffect(() => {
+    if (isSuccess && data?.token) {
+      message.success("Sign Up Successful!"),
+        localStorage.setItem("accessToken", data?.token);
+      form.resetFields();
+      navigate("/dashboard/region");
+    }
+  }, [isSuccess, data?.token, navigate, form]);
+  if (isError) {
+    <p>Something went wrong!</p>;
+  }
+
   const onFinishFailed = () => {
     message.error("Fill the form!");
   };
@@ -121,7 +140,13 @@ const RegisterForm = () => {
         {/* Password Field */}
         <Form.Item
           name="password"
-          rules={[{ required: true, message: "Please input your password!" }]}
+          rules={[
+            {
+              required: true,
+              min: 8,
+              message: "Password must be at least 8 characters long!",
+            },
+          ]}
         >
           <Input
             placeholder="Password "
@@ -217,7 +242,7 @@ const RegisterForm = () => {
             }}
             htmlType="submit"
           >
-            Create Account
+            {isLoading ? "Loading..." : " Create Account"}
           </Button>
         </Form.Item>
       </Form>

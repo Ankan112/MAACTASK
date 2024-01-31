@@ -9,8 +9,6 @@ const LoginForm = () => {
   const [form] = Form.useForm();
   // Function to handle form submission
   const handleSignUp = (values) => {
-    // Log form values to the console
-    // console.log("Form Values:", values);
     login(values);
   };
 
@@ -25,7 +23,6 @@ const LoginForm = () => {
   if (isError) {
     <p>Something went wrong!</p>;
   }
-  // console.log(data);
   const onFinishFailed = () => {
     message.error("Fill the form!");
   };
