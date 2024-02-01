@@ -11,11 +11,8 @@ const RegisterForm = () => {
   const [form] = Form.useForm();
   // Function to handle form submission
   const handleSignUp = (values) => {
-    // Log form values to the console
-    console.log("Form Values:", values);
     signUp(values);
   };
-  console.log(data, isError);
   useEffect(() => {
     if (isSuccess && data?.token) {
       message.success("Sign Up Successful!"),
@@ -25,7 +22,7 @@ const RegisterForm = () => {
     }
   }, [isSuccess, data?.token, navigate, form]);
   if (isError) {
-    <p>Something went wrong!</p>;
+    return <p>Something went wrong!</p>;
   }
 
   const onFinishFailed = () => {

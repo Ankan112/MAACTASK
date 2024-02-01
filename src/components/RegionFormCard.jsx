@@ -14,7 +14,7 @@ const RegionFormCard = () => {
     }
   }, [isSuccess, form]);
   if (isError) {
-    <p>Something went wrong!</p>;
+    return <p>Something went wrong!</p>;
   }
 
   const onFinishFailed = () => {
