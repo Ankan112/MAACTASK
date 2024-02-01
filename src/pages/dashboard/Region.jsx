@@ -1,6 +1,7 @@
 import { Breadcrumb, Button, theme, Layout } from "antd";
 import { Link } from "react-router-dom";
 import { PlusOutlined } from "@ant-design/icons";
+import RegionTable from "../../components/RegionTable";
 const { Content } = Layout;
 const Region = () => {
   const {
@@ -69,12 +70,12 @@ const Region = () => {
           minHeight: 706,
           background: colorBgContainer,
           borderRadius: borderRadiusLG,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          // display: "flex",
+          // justifyContent: "center",
+          // alignItems: "center",
         }}
       >
-        <div>
+        {/* <div>
           <p
             style={{
               fontSize: "20px",
@@ -89,7 +90,8 @@ const Region = () => {
               Create Region
             </Link>
           </p>
-        </div>
+        </div> */}
+        <RegionTable />
       </Content>
     </div>
   );
