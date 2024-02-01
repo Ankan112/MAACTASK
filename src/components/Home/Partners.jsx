@@ -7,7 +7,7 @@ const Partners = () => {
   return (
     <div
       style={{
-        padding: "112px 0",
+        padding: "132px 0",
       }}
     >
       <h1
@@ -25,8 +25,8 @@ const Partners = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          gap: "76px",
-          marginTop: "48px",
+          gap: "88px",
+          marginTop: "62px",
         }}
       >
         <div>

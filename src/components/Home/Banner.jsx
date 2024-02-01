@@ -62,7 +62,7 @@ const Banner = () => {
                 height: "65px",
                 textAlign: "center",
                 border: "1px solid #0052CC",
-                boxShadow: "0 2px 5px #C2D2EB",
+                boxShadow: "3px 3px 0 0 #0052CC",
               }}
             >
               Download
