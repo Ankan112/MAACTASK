@@ -1,6 +1,6 @@
 # FieldX
 
-Please check live [link](https://github.com/Ankan112)
+Please check live [link](https://maac-frontend-task-ankan112.netlify.app/)
 ### Login credential
 ```
 id: ankan
