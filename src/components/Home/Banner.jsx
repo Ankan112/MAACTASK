@@ -8,7 +8,7 @@ const Banner = () => {
         height: "910px",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
+        paddingTop: "220px",
       }}
     >
       <div>
