@@ -3,7 +3,7 @@ import logo from "../../assets/FieldX.svg";
 import { Button } from "antd";
 const Header = () => {
   return (
-    <div className="main-container">
+    <div>
       <div
         style={{
           display: "flex",
@@ -55,7 +55,7 @@ const Header = () => {
                 width: "130px",
                 textAlign: "center",
                 border: "1px solid #0052CC",
-                boxShadow: "0 2px 5px #C2D2EB",
+                boxShadow: "2px 2px 0 0 #0052CC",
               }}
             >
               Registration

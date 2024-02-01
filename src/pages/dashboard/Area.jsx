@@ -1,8 +1,11 @@
 import { Breadcrumb, Button, theme, Layout } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import AreaTable from "../../components/AreaTable";
+import { useGetAllAreaQuery } from "../../redux/api/area/areaSlice";
 const { Content } = Layout;
 const Area = () => {
+  const { data } = useGetAllAreaQuery({ limit: 1, page: 1 });
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -68,27 +71,35 @@ const Area = () => {
           minHeight: 706,
           background: colorBgContainer,
           borderRadius: borderRadiusLG,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
         }}
       >
-        <div>
-          <p
+        {data?.length !== 0 ? (
+          <AreaTable />
+        ) : (
+          <div
             style={{
-              fontSize: "20px",
-              fontWeight: 400,
-              color: "#9FA3A6",
-              textAlign: "center",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "706px",
             }}
           >
-            Currently you have no Data. <br />
-            For next step first{" "}
-            <Link to={"/"} style={{ color: "#556EE6" }}>
-              Create Area
-            </Link>
-          </p>
-        </div>
+            <p
+              style={{
+                fontSize: "20px",
+                fontWeight: 400,
+                color: "#9FA3A6",
+                textAlign: "center",
+              }}
+            >
+              Currently you have no Data. <br />
+              For next step first{" "}
+              <Link to={"new-area"} style={{ color: "#556EE6" }}>
+                Create Area
+              </Link>
+            </p>
+          </div>
+        )}
       </Content>
     </div>
   );

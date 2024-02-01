@@ -17,7 +17,24 @@
 }
 
 .auth-bg {
-  background-image: url(./assets//registerbg.png);
+  background-image: url(./assets/registerbg.png);
   background-size: "cover";
   background-position: "center";
+}
+.banner-bg {
+  background-image: url(./assets/bannerbg.png);
+  background-size: "cover";
+  background-position: "center";
+}
+
+.about-bg {
+  background-image: url(./assets/aboutbg.png);
+  background-size: "cover";
+  background-position: "center";
+}
+.faq-bg {
+  background-image: url(./assets/faqbg.png);
+  background-size: "cover";
+  background-position: "center";
+  background-color: #0052cc;
 }

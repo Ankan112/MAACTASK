@@ -1,8 +1,11 @@
 import { Breadcrumb, Button, theme, Layout } from "antd";
 import { Link } from "react-router-dom";
 import { PlusOutlined } from "@ant-design/icons";
+import RegionTable from "../../components/RegionTable";
+import { useGetAllRegionQuery } from "../../redux/api/region/regionSlice";
 const { Content } = Layout;
 const Region = () => {
+  const { data } = useGetAllRegionQuery({ limit: 1, page: 1 });
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -69,27 +72,35 @@ const Region = () => {
           minHeight: 706,
           background: colorBgContainer,
           borderRadius: borderRadiusLG,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
         }}
       >
-        <div>
-          <p
+        {data?.length !== 0 ? (
+          <RegionTable />
+        ) : (
+          <div
             style={{
-              fontSize: "20px",
-              fontWeight: 400,
-              color: "#9FA3A6",
-              textAlign: "center",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "706px",
             }}
           >
-            Currently you have no Data. <br />
-            For next step first{" "}
-            <Link to={"/"} style={{ color: "#556EE6" }}>
-              Create Region
-            </Link>
-          </p>
-        </div>
+            <p
+              style={{
+                fontSize: "20px",
+                fontWeight: 400,
+                color: "#9FA3A6",
+                textAlign: "center",
+              }}
+            >
+              Currently you have no Data. <br />
+              For next step first{" "}
+              <Link to={"new-region"} style={{ color: "#556EE6" }}>
+                Create Region
+              </Link>
+            </p>
+          </div>
+        )}
       </Content>
     </div>
   );
