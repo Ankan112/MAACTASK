@@ -21,11 +21,15 @@
   background-size: "cover";
   background-position: "center";
 }
+.banner-bg {
+  background-image: url(./assets/bannerbg.png);
+  background-size: "cover";
+  background-position: "center";
+}
 
 .faq-bg {
   background-image: url(./assets/faqbg.png);
   background-size: "cover";
   background-position: "center";
-  /* background-color: rgba(173, 216, 255, 0.5); */
   background-color: #0052cc;
 }
