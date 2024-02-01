@@ -12,7 +12,7 @@ const areaApi = api.injectEndpoints({
     }),
     getAllArea: builder.query({
       query: ({ limit, page }) => ({
-        url: `/area/${limit}/${page}`,
+        url: `/area/All/${limit}/${page}`,
       }),
       providesTags: ["area"],
     }),

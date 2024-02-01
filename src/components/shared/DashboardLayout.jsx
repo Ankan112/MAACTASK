@@ -25,7 +25,9 @@ const DashboardLayout = () => {
             }}
             className=""
           >
-            <img src={logo} alt="Logo" />
+            <Link to="/">
+              <img src={logo} alt="Logo" />
+            </Link>
           </div>
           <p
             style={{
