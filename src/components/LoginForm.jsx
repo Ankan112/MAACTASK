@@ -4,7 +4,7 @@ import { useLoginMutation } from "../redux/api/user/userApi";
 import { useEffect } from "react";
 
 const LoginForm = () => {
-  const [login, { data, isLoading, isError, isSuccess }] = useLoginMutation();
+  const [login, { data, isLoading, isSuccess, error }] = useLoginMutation();
   const navigate = useNavigate();
   const [form] = Form.useForm();
   // Function to handle form submission
@@ -20,8 +20,8 @@ const LoginForm = () => {
       navigate("/dashboard/region");
     }
   }, [isSuccess, data?.token, navigate, form]);
-  if (isError) {
-    return <p>Something went wrong!</p>;
+  if (error) {
+    message.error(error?.data?.message);
   }
   const onFinishFailed = () => {
     message.error("Fill the form!");

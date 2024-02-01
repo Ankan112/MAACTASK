@@ -6,7 +6,7 @@ import { useEffect } from "react";
 const { Option } = Select;
 
 const RegisterForm = () => {
-  const [signUp, { data, isError, isLoading, isSuccess }] = useSignUpMutation();
+  const [signUp, { data, error, isLoading, isSuccess }] = useSignUpMutation();
   const navigate = useNavigate();
   const [form] = Form.useForm();
   // Function to handle form submission
@@ -21,8 +21,8 @@ const RegisterForm = () => {
       navigate("/dashboard/region");
     }
   }, [isSuccess, data?.token, navigate, form]);
-  if (isError) {
-    return <p>Something went wrong!</p>;
+  if (error) {
+    message.error(error?.data?.message);
   }
 
   const onFinishFailed = () => {
@@ -76,6 +76,7 @@ const RegisterForm = () => {
         Fill in the details below to create an account
       </p>
       <Form
+        form={form}
         style={{
           maxWidth: "608px",
           margin: "0 auto",
