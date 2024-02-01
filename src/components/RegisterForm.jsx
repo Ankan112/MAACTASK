@@ -252,7 +252,7 @@ const RegisterForm = () => {
           fontStyle: "normal",
           fontWeight: "500",
           lineHeight: "150%",
-          margin: "64px 0 80px",
+          margin: "64px 0 60px",
           textAlign: "center",
         }}
       >

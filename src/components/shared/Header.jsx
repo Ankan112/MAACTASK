@@ -3,7 +3,7 @@ import logo from "../../assets/FieldX.svg";
 import { Button } from "antd";
 const Header = () => {
   return (
-    <div className="main-container">
+    <div>
       <div
         style={{
           display: "flex",
